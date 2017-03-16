@@ -1,0 +1,221 @@
+% shopping cart module for flipcart : coded by Mukesh Mann @ GBU: 
+1.	function z= shopping(t,g,p,q)
+2.	disp('You can chose among following Models')
+3.	[m1 m2 m3 m4  m5 p1 p2 p3 p4 p5]= flipcart1(t,g,p)
+4.	if(m1~=0)
+5.	choice = input(' Please Enter Your Model Number', 's')
+6.	ch=choice;
+7.	switch ch
+8.	case '11'
+9.	final_prize=qty(m1,p1,q)
+10.	case '12'
+11.	final_prize=qty(m2,p2,q)
+12.	case '13'
+13.	final_prize=qty(m3,p3,q)
+14.	case '14'
+15.	final_prize=qty(m4,p4,q)
+16.	case '15'
+17.	final_prize=qty(m5,p5,q)
+18.	otherwise
+19.	disp('please specify correct inputs')
+20.	end
+21.	else
+22.	disp('please specify corrcet inputs')  
+23.	end 
+24.	end
+
+25.	%######################################################
+26.	function [m1 m2 m3 m4  m5 p1 p2 p3 p4 p5]= flipcart1(t,g,p)
+27.	% types of gadgets : %1= micromax., 2--> apple..... 3--> Samsung, 4---> moto
+28.	if (t==1 && g==3 && p>=2000 && p<5000)
+29.	m1=11;
+30.	m2=12;    
+31.	m3=13;
+32.	m4=14;
+33.	m5=15;
+34.	p1=4000;
+35.	p2=4100;
+36.	p3=4200;
+37.	p4=4500;
+38.	p5=5000;    
+39.	elseif(t==1 && g==3 && p>=5000 && p<=10000)
+40.	m1=11;
+41.	m2=12;    
+42.	m3=13;
+43.	m4=14;
+44.	m5=15;
+45.	p1=5100;
+46.	p2=5050;
+47.	p3=6200;
+48.	p4=7500;
+49.	p5=9500;    
+50.	elseif(t==1 && g==3 && p>=10000 && p<=20000)
+51.	m1=11;
+52.	m2=12;    
+53.	m3=13;
+54.	m4=14;
+55.	m5=15;
+56.	p1=11000;
+57.	p2=12000;
+58.	p3=13500;
+59.	p4=18500;
+60.	p5=19500;
+61.	else 
+62.	disp('please specify correct inputs')
+63.	m1=0;
+64.	m2=0;    
+65.	m3=0;
+66.	m4=0;
+67.	m5=0;
+68.	p1=0;
+69.	p2=0;
+70.	p3=0;
+71.	p4=0;
+72.	p5=0;
+73.	end
+74.	end
+75.	function [prize]= qty(m,p,q)
+76.	% following are the discounts on these model with their qty 
+77.	%Model     Prize      Qty      Discount
+78.	% m1        4000       2        10
+79.	% m1        4000       3        20
+80.	% m1        5100       2        10
+81.	% m1        5100       3        20
+82.	% m1        11000      2        25
+83.	% m1        11000      3        25
+84.	%#######################################
+85.	% m2        4100       2        10
+86.	% m2        4100       3        20
+87.	% m2        5050       2        10
+88.	% m2        5050       3        20
+89.	% m2        12000      2        25
+90.	% m2        12000      3        25
+91.	%#######################################
+92.	% m3        4200       2        10
+93.	% m3        4200       3        20
+94.	% m3        6200       2        12
+95.	% m3        6200       3        22
+96.	% m3        13500      2        25
+97.	% m3        13500      3        25
+98.	%#######################################
+99.	% m4        4500       2        10
+100.	% m4        4500       3        20
+101.	% m4        7500       2        15
+102.	% m4        7500       3        20
+103.	% m4        18500      2        20
+104.	% m4        18500      3        20
+
+105.	%#######################################
+106.	% m5        5000      2         10
+107.	% m5        5000       3        20
+108.	% m5        9500       2        15
+109.	% m5        9500       3        20
+110.	% m5        19500      2        25
+111.	% m5        19500      3        25
+
+112.	%for model number 11
+113.	if (m==11 && p==4000 && q==1)
+114.	prize=q*p;
+115.	% get 10  discount on two qty of this model 
+116.	elseif (m==11 && p==4000 && q==2)
+117.	prize=(q*p)*0.9;
+
+118.	% get 20 discount on three qty of this model 
+119.	elseif (m==11 && p==4000 && q==3)
+120.	prize=(q*p)*0.2;
+121.	elseif (m==11 && p==5100 && q==1)
+122.	prize=(q*p);         
+123.	% get 10  discount on two qty of this model 
+124.	elseif (m==11 && p==5100 && q==2)
+125.	prize=(q*p)*0.9;
+126.	% get 20  discount on three qty of this model 
+127.	elseif (m==11 && p==5100 && q==3)
+128.	prize=(q*p)*0.2;      
+129.	elseif (m==11 && p==11000 && q==1)
+130.	prize=(q*p)-100;         
+131.	% get 25  discount on two qty of this model 
+132.	elseif (m==11 && p==11000 && q==2)
+133.	prize=(q*p)*0.75;         
+134.	% get 25  discount on three qty of this model 
+135.	elseif (m==11 && p==11000 && q==3)
+136.	prize=(q*p)*0.75;         
+137.	%for model number 12              
+138.	elseif (m==12 && p==4100 && q==1)
+139.	prize=(q*p);         
+140.	elseif (m==12 && p==4100 && q==2)
+141.	prize=(q*p)*0.9;
+142.	elseif (m==12 && p==4100 && q==3)
+143.	prize=(q*p)*0.2;
+144.	elseif (m==12 && p==5050 && q==1)
+145.	prize=(q*p);
+146.	elseif (m==12 && p==5050 && q==2)
+147.	prize=(q*p)*0.9;       
+148.	elseif (m==12 && p==5050 && q==3)
+149.	prize=(q*p)*0.2;   
+150.	elseif (m==12 && p==12000 && q==1)
+151.	prize=(q*p);
+152.	elseif (m==12 && p==12000 && q==2)
+153.	prize=(q*p)*0.75;
+154.	elseif (m==12 && p==12000 && q==3)
+155.	prize=(q*p)*0.75;         
+156.	%for model number 13                 
+157.	elseif (m==13 && p==4200 && q==1)
+158.	prize=(q*p);
+159.	elseif (m==13 && p==4200 && q==2)
+160.	prize=(q*p)*0.9;
+161.	elseif (m==13 && p==4200 && q==3)
+162.	prize=(q*p)*0.2;                          
+163.	elseif (m==13 && p==6200 && q==1)
+164.	prize=(q*p);
+165.	elseif (m==13 && p==6200 && q==2)
+166.	prize=(q*p)*0.88;
+167.	elseif (m==13 && p==6200 && q==3)
+168.	prize=(q*p)*0.78;         
+169.	elseif (m==13 && p==13500 && q==1)
+170.	prize=(q*p);
+171.	elseif (m==13 && p==13500 && q==2)
+172.	prize=(q*p)*0.75;
+173.	elseif (m==13 && p==13500 && q==3)
+174.	prize=(q*p)*0.75;          
+175.	%for model number 14      
+176.	elseif (m==14 && p==4500 && q==1)
+177.	prize=(q*p);
+178.	elseif (m==14 && p==4500 && q==2)
+179.	prize=(q*p)*0.9;
+180.	elseif (m==14 && p==4500 && q==3)
+181.	prize=(q*p)*0.80;
+182.	elseif (m==14 && p==7500 && q==1)
+183.	prize=(q*p);
+184.	elseif (m==14 && p==7500 && q==2)
+185.	prize=(q*p)*0.85;
+186.	elseif (m==14 && p==7500 && q==3)
+187.	prize=(q*p)*0.80;        
+188.	elseif (m==14 && p==18500 && q==1)
+189.	prize=(q*p);
+190.	elseif (m==14 && p==18500 && q==2)
+191.	prize=(q*p)*0.80;
+192.	elseif (m==14 && p==18500 && q==3)
+193.	prize=(q*p)*0.80;             
+194.	%for model number 15
+195.	elseif (m==15 && p==5000 && q==1)
+196.	prize=(q*p);
+197.	elseif (m==15 && p==5000 && q==2)
+198.	prize=(q*p)*0.9;
+199.	elseif (m==15 && p==5000 && q==3)
+200.	prize=(q*p)*0.80;-                          
+201.	elseif (m==15 && p==9500 && q==1)
+202.	prize=(q*p);
+203.	elseif (m==15 && p==9500 && q==2)
+204.	prize=(q*p)*0.85;
+205.	elseif (m==15 && p==9500 && q==3)
+206.	prize=(q*p)*0.80;         
+207.	elseif (m==15 && p==19500 && q==1)
+208.	prize=(q*p)-100;
+209.	elseif (m==15 && p==19500 && q==2)
+210.	prize=(q*p)*0.80;
+211.	elseif (m==15 && p==19500 && q==3)
+212.	prize=(q*p)*.080;     
+213.	else
+214.	disp('please specify correct inputs')
+215.	end216.	end
+
